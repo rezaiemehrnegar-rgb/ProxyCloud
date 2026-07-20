@@ -14,10 +14,14 @@ class TelegramProxyService {
 
   Future<List<TelegramProxy>> fetchProxies() async {
     try {
-      final response = await http.get(Uri.parse(proxyUrl)).timeout(
+      final response = await http
+          .get(Uri.parse(proxyUrl))
+          .timeout(
             const Duration(seconds: 60),
             onTimeout: () {
-              throw Exception('Network timeout: Check your internet connection');
+              throw Exception(
+                'Network timeout: Check your internet connection',
+              );
             },
           );
 

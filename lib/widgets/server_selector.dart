@@ -48,7 +48,7 @@ class ServerSelector extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: isGlassBackground
-          ? AppTheme.surfaceCard.withOpacity(0.7)
+          ? AppTheme.surfaceCard.withValues(alpha: 0.7)
           : AppTheme.cardDark,
       child: Padding(
         padding: const EdgeInsets.all(16),
