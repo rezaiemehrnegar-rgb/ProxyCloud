@@ -6,7 +6,7 @@ import '../theme/app_theme.dart';
 import '../services/wallpaper_service.dart';
 
 class ConnectionStatus extends StatelessWidget {
-  const ConnectionStatus({Key? key}) : super(key: key);
+  const ConnectionStatus({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +88,8 @@ class ConnectionStatus extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     color: isGlassBackground
-                        ? Colors.black.withOpacity(0.2)
-                        : Colors.black.withOpacity(0.2),
+                        ? Colors.black.withValues(alpha: 0.2)
+                        : Colors.black.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
@@ -153,7 +153,10 @@ class ConnectionStatus extends StatelessWidget {
       ];
     }
     if (isConnected) {
-      return [AppTheme.connectedGreen, AppTheme.connectedGreen.withValues(alpha: 0.8)];
+      return [
+        AppTheme.connectedGreen,
+        AppTheme.connectedGreen.withValues(alpha: 0.8),
+      ];
     }
     return [
       AppTheme.disconnectedRed,

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +9,6 @@ import '../utils/app_localizations.dart';
 import '../providers/language_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
-import 'dart:typed_data';
 
 class BlockedAppsScreen extends StatefulWidget {
   const BlockedAppsScreen({super.key});

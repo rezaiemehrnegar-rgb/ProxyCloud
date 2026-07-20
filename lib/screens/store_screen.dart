@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,7 +12,7 @@ import '../widgets/error_snackbar.dart';
 import '../utils/app_localizations.dart';
 
 class StoreScreen extends StatefulWidget {
-  const StoreScreen({Key? key}) : super(key: key);
+  const StoreScreen({super.key});
 
   @override
   State<StoreScreen> createState() => _StoreScreenState();
@@ -69,7 +71,7 @@ class _StoreScreenState extends State<StoreScreen> {
     } catch (e) {
       setState(() {
         _errorMessage =
-            context.tr(TranslationKeys.errorNetwork) + ': ${e.toString()}';
+            '${context.tr(TranslationKeys.errorNetwork)}: ${e.toString()}';
         _isLoading = false;
       });
     }
@@ -141,7 +143,7 @@ class _StoreScreenState extends State<StoreScreen> {
     } catch (e) {
       ErrorSnackbar.show(
         context,
-        context.tr(TranslationKeys.errorUnknown) + ': ${e.toString()}',
+        '${context.tr(TranslationKeys.errorUnknown)}: ${e.toString()}',
       );
     }
   }
@@ -189,7 +191,7 @@ class _StoreScreenState extends State<StoreScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: AppTheme.primaryBlue.withOpacity(0.2),
+                          color: AppTheme.primaryBlue.withValues(alpha: 0.2),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
@@ -222,15 +224,15 @@ class _StoreScreenState extends State<StoreScreen> {
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          AppTheme.primaryBlue.withOpacity(0.3),
-                          AppTheme.primaryBlue.withOpacity(0.1),
+                          AppTheme.primaryBlue.withValues(alpha: 0.3),
+                          AppTheme.primaryBlue.withValues(alpha: 0.1),
                         ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                       ),
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(
-                        color: AppTheme.primaryBlue.withOpacity(0.5),
+                        color: AppTheme.primaryBlue.withValues(alpha: 0.5),
                         width: 1,
                       ),
                     ),
@@ -283,7 +285,7 @@ class _StoreScreenState extends State<StoreScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withValues(alpha: 0.5),
                         width: 1,
                       ),
                     ),
@@ -426,8 +428,8 @@ class _StoreScreenState extends State<StoreScreen> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppTheme.cardDark.withOpacity(0.9),
-            AppTheme.cardDark.withOpacity(0.7),
+            AppTheme.cardDark.withValues(alpha: 0.9),
+            AppTheme.cardDark.withValues(alpha: 0.7),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -435,7 +437,7 @@ class _StoreScreenState extends State<StoreScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -450,10 +452,10 @@ class _StoreScreenState extends State<StoreScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppTheme.primaryBlue.withOpacity(0.1),
+                color: AppTheme.primaryBlue.withValues(alpha: 0.1),
                 border: Border(
                   bottom: BorderSide(
-                    color: AppTheme.primaryBlue.withOpacity(0.2),
+                    color: AppTheme.primaryBlue.withValues(alpha: 0.2),
                     width: 1,
                   ),
                 ),
@@ -580,7 +582,7 @@ class _StoreScreenState extends State<StoreScreen> {
                       gradient: LinearGradient(
                         colors: [
                           AppTheme.primaryBlue,
-                          AppTheme.primaryBlue.withOpacity(0.8),
+                          AppTheme.primaryBlue.withValues(alpha: 0.8),
                         ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
@@ -588,7 +590,7 @@ class _StoreScreenState extends State<StoreScreen> {
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          color: AppTheme.primaryBlue.withOpacity(0.3),
+                          color: AppTheme.primaryBlue.withValues(alpha: 0.3),
                           blurRadius: 8,
                           offset: const Offset(0, 2),
                         ),

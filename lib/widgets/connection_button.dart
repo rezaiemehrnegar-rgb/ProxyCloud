@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, unused_element
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +10,7 @@ import '../utils/auto_select_util.dart';
 import '../utils/app_localizations.dart';
 
 class ConnectionButton extends StatefulWidget {
-  const ConnectionButton({Key? key}) : super(key: key);
+  const ConnectionButton({super.key});
 
   @override
   State<ConnectionButton> createState() => _ConnectionButtonState();
@@ -168,7 +170,7 @@ class _ConnectionButtonState extends State<ConnectionButton> {
               color: AppTheme.cardDark,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
+                  color: Colors.black.withValues(alpha: 0.3),
                   blurRadius: 15,
                   offset: const Offset(0, 5),
                 ),
@@ -350,7 +352,7 @@ class _ConnectionButtonState extends State<ConnectionButton> {
                           shape: BoxShape.circle,
                           gradient: RadialGradient(
                             colors: [
-                              Colors.white.withOpacity(0.2),
+                              Colors.white.withValues(alpha: 0.2),
                               Colors.transparent,
                             ],
                           ),
@@ -413,7 +415,7 @@ class _ConnectionButtonState extends State<ConnectionButton> {
     if (isConnecting) {
       return [
         AppTheme.connectingBlue,
-        AppTheme.connectingBlue.withOpacity(0.7),
+        AppTheme.connectingBlue.withValues(alpha: 0.7),
       ];
     } else if (isConnected) {
       return [
